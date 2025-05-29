@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello </title>
+    <!-- Bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <!-- Css Styles-->
+     <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis">
+        <!--Div para mostrar error al fetch principal-->
+    <!--<div id="error-message" style="color: red; display: none;"></div>-->
+    
+    <!--Div principal Dashboard-->
+    <div class="container py-4">
+        <h1>Trello Demo</h1>
+
+        <!--Comenzamos a definir formulario-->
+        <form id="Tareas_Form" class="mb-4">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <input type="number" id="Tarea_Id" class="form-control" placeholder="ID (opcional para editar)">
+                </div> 
+
+                <div class="col-md-4">
+                    <input type="text" id="Tarea_Titulo" class="form-control" placeholder="Titulo" required>
+                </div>
+
+                <div class="col-md-4">
+                    <input type="text" id="Tarea_Descripcion" class="form-control" placeholder="Descripciòn" required>
+                </div>
+                <div class="col-md-4">
+                   
+                    <select class="form-select" aria-label="Estado" id="Tarea_Estado">
+                        <option selected>Estado</option>
+                        <option value="pendiente">Pendiente</option>
+                        <option value="en progreso">En progreso</option>
+                        <option value="terminada">Terminada</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" id="Tarea_Responsable" class="form-control" placeholder="Responsable" required>
+                </div>
+                
+                <div class="col-md-12 d-flex gap-2">
+                    <button type="submit" class="btn btn-outline-success">Guardar Actividad</button>
+                    <!-- <button type="submit" class="btn btn-outline-secondary" id="reset-btn" >Limpiar</button> -->
+                 </div>
+            </div>
+        </form>
+
+        <div>
+            Espacio para filtrar por Responsable y estado
+        </div>
+
+         <!-- Start Table -->
+       
+        <div class="Div_Tablas">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Pendiente</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Tareas-Pendiente"></tbody>
+                </table>
+            </div>
+            <!-- End´s Table-->
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>En progreso</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Tareas-EnProceso"></tbody>
+                </table>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Terminado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Tareas-Terminado"></tbody>
+                </table>
+            </div>
+        </div>
+    
+
+    </div>
+
+   
+
+
+    <!-- Scripts   -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
