@@ -9,7 +9,7 @@
     <!-- Css Styles-->
      <link rel="stylesheet" href="style.css">
 </head>
-<body class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis">
+<body class="p-3 mb-2 bg-success-subtle text-success-emphasis">
         <!--Div para mostrar error al fetch principal-->
     <!--<div id="error-message" style="color: red; display: none;"></div>-->
     
@@ -45,7 +45,7 @@
                 </div>
                 
                 <div class="col-md-12 d-flex gap-2">
-                    <button type="submit" class="btn btn-outline-success">Guardar Actividad</button>
+                    <button type="submit" class="btn btn-warning">Guardar Actividad</button>
                     <!-- <button type="submit" class="btn btn-outline-secondary" id="reset-btn" >Limpiar</button> -->
                  </div>
             </div>
@@ -58,9 +58,9 @@
          <!-- Start Table -->
        
         <div class="Div_Tablas">
-            <div class="table-responsive">
+            <div class="table-responsive container text-center">
                 <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+                    <thead class="table-primary">
                         <tr>
                             <th>Pendiente</th>
                         </tr>
@@ -69,9 +69,9 @@
                 </table>
             </div>
             <!-- End´s Table-->
-            <div class="table-responsive">
+            <div class="table-responsive container text-center">
                 <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+                    <thead class="table-warning">
                         <tr>
                             <th>En progreso</th>
                         </tr>
@@ -79,9 +79,9 @@
                     <tbody id="Tareas-EnProceso"></tbody>
                 </table>
             </div>
-            <div class="table-responsive">
+            <div class="table-responsive container text-center">
                 <table class="table table-bordered table-hover">
-                    <thead class="table-dark">
+                    <thead class="table-success">
                         <tr>
                             <th>Terminado</th>
                         </tr>

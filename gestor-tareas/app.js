@@ -98,13 +98,13 @@ function renderTareas(tareas){
     tareas.forEach(t => {
         if(t.estado === "pendiente"){
             const row = document.createElement('tr');
+            row.className = "card";
             row.innerHTML = `
             <td>
                 <p>Titulo: ${t.titulo}</p>
                 <p>Descripciòn: ${t.descripcion}</p>
                 <p>Responsable: ${t.responsable}</p>
-                <p>Estado: ${t.estado}</p>
-                 <button class="btn btn-outline-warning btn-sm edit-btn" data-id="${t.id}">Editar</button>
+                 <button class="btn btn-outline-info btn-sm edit-btn" data-id="${t.id}">Editar</button>
                 <button class="btn btn-outline-danger btn-sm delete-btn" data-id="${t.id}">Eliminar</button>      
             </td>
             `
@@ -117,13 +117,13 @@ function renderTareas(tareas){
     tareas.forEach(t => {
         if(t.estado == "en progreso"){
             const row = document.createElement('tr');
+            row.className = "card";
             row.innerHTML = `
             <td>
                 <p>Titulo: ${t.titulo}</p>
                 <p>Descripciòn: ${t.descripcion}</p>
                 <p>Responsable: ${t.responsable}</p>
-                <p>Estado: ${t.estado}</p>
-                <button class="btn btn-outline-warning btn-sm edit-btn" data-id="${t.id}">Editar</button>
+                <button class="btn btn-outline-info btn-sm edit-btn" data-id="${t.id}">Editar</button>
                 <button class="btn btn-outline-danger btn-sm delete-btn" data-id="${t.id}">Eliminar</button>  
             </td>
             `
@@ -135,13 +135,13 @@ function renderTareas(tareas){
     tareas.forEach(t => {
         if(t.estado == "terminada"){
             const row = document.createElement('tr');
+            row.className = "card";
             row.innerHTML = `
             <td>
                 <p>Titulo: ${t.titulo}</p>
                 <p>Descripciòn: ${t.descripcion}</p>
                 <p>Responsable: ${t.responsable}</p>
-                <p>Estado: ${t.estado}</p>
-                <button class="btn btn-outline-warning btn-sm edit-btn" data-id="${t.id}">Editar</button>
+                <button class="btn btn-outline-info btn-sm edit-btn" data-id="${t.id}">Editar</button>
                 <button class="btn btn-outline-danger btn-sm delete-btn" data-id="${t.id}">Eliminar</button>  
             </td>
             `

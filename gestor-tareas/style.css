@@ -6,3 +6,11 @@
     grid-column-gap: 12px;
     grid-row-gap: 0px;
 }
+
+.card{
+    margin-top: 10px;
+}
+
+.card:hover{
+    transform: scale(1.05); /* efecto de zoom al pasar el mouse sobre la tarjeta*/
+}
