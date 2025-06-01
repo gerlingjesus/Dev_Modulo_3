@@ -27,11 +27,8 @@ Para implementar este proyecto dirijase en la carpeta del proyecto, abra una ter
 
 ```bash
   npm init -y
-```
-```bash
   npm install node-fetch json-server
-```
-```bash
   npx json-server --watch db.json --port 3000
 ```
+
 
