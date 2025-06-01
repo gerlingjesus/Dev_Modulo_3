@@ -11,7 +11,7 @@
 </head>
 <body class="p-3 mb-2 bg-success-subtle text-success-emphasis">
         <!--Div para mostrar error al fetch principal-->
-    <!--<div id="error-message" style="color: red; display: none;"></div>-->
+    <div id="error-message" style="color: red; display: none;"></div>
     
     <!--Div principal Dashboard-->
     <div class="container py-4">
@@ -46,16 +46,12 @@
                 
                 <div class="col-md-12 d-flex gap-2">
                     <button type="submit" class="btn btn-warning">Guardar Actividad</button>
-                    <!-- <button type="submit" class="btn btn-outline-secondary" id="reset-btn" >Limpiar</button> -->
                  </div>
             </div>
         </form>
 
-        <div>
-            Espacio para filtrar por Responsable y estado
-        </div>
 
-         <!-- Start Table -->
+         <!-- Iniciamos tabla de "pendientes" -->
        
         <div class="Div_Tablas">
             <div class="table-responsive container text-center">
@@ -68,7 +64,9 @@
                     <tbody id="Tareas-Pendiente"></tbody>
                 </table>
             </div>
-            <!-- End´s Table-->
+            <!-- Termina tabla-->
+
+            <!-- Iniciamos tabla de "En progreso" -->
             <div class="table-responsive container text-center">
                 <table class="table table-bordered table-hover">
                     <thead class="table-warning">
@@ -79,6 +77,8 @@
                     <tbody id="Tareas-EnProceso"></tbody>
                 </table>
             </div>
+            
+            <!-- Iniciamos tabla de "Terminado" -->
             <div class="table-responsive container text-center">
                 <table class="table table-bordered table-hover">
                     <thead class="table-success">

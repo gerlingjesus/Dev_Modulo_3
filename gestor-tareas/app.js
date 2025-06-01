@@ -9,6 +9,8 @@ const resetBtn = document.getElementById(`reset-btn`);
 const TareasPendiente = document.getElementById('Tareas-Pendiente');
 const TareasProceso = document.getElementById('Tareas-EnProceso');
 const TareasTerminado = document.getElementById('Tareas-Terminado');
+const errorMessage = document.getElementById('error-message'); // elemento para mostrar mensajes de error
+
 
 //DOM formulario opciones de entrada
 const inputId = document.getElementById(`Tarea_Id`);
@@ -17,10 +19,24 @@ const inputDescripcion = document.getElementById(`Tarea_Descripcion`);
 const inputEstado = document.getElementById(`Tarea_Estado`);
 const inputResponsable = document.getElementById(`Tarea_Responsable`);
 
+// Función para mostrar un mensaje de error en la interfaz de usuario
+function showError(message){
+    errorMessage.textContent = message; // Asignar el mensaje de error al elemento de error
+    errorMessage.style.display = 'block'; // Mostrar el elemento de error
+}
+
+// Función para ocultar el mensaje de error en la interfaz de usuario
+function clearError(){
+    errorMessage.textContent = ''; // Limpiar el mensaje de error
+    errorMessage.style.display = 'none'; // Ocultar el elemento de error
+}
+
 //Evento para Crear nueva actividad
 Tareas_Form.addEventListener('submit', async (e) => {
     e.preventDefault(); //evitar que la pagina se recargue
-    
+
+
+    //Obtenemos los datos de los input para manejarlos
     const titulo = inputTitulo.value.trim();
     const descripcion = inputDescripcion.value.trim();
     const estado = inputEstado.value;
@@ -32,10 +48,13 @@ Tareas_Form.addEventListener('submit', async (e) => {
         showError(`Por favor completa todos los campos correctamente`);
         return;
     }
+
+    //validamos que el select no tenga el estado por default
     if(estado === "Estado"){
         alert('Coloca un estado valido');
         return;
     }
+
     //Creamos un objeto con los datos obtenidos por el formulario
     const payload = {titulo,descripcion,estado,responsable};
 
@@ -43,9 +62,8 @@ Tareas_Form.addEventListener('submit', async (e) => {
         let response; // Variable para almacenar la respuesta del servidor
 
         if(id){
-            // si el producto ya tiene un ID, significa que estamos actualiizando un producto existente (método PUT)
             response = await fetch(`${API_URL}/${id}`, {
-                method: 'PUT', // Método para actualizar un producto existente
+                method: 'PUT', // Método para actualizar 
                 headers: {'Content-Type': 'application/json'}, // Indicar que el cuerpo de la solicitud es JSON
                 body: JSON.stringify(payload), // Convertir el objeto payload a una cadena JSON
             })
@@ -54,7 +72,7 @@ Tareas_Form.addEventListener('submit', async (e) => {
             const allTareasRes = await fetch(API_URL); //Obtener las tareas actuales
             const allTareas = await allTareasRes.json(); //convertir la respuesta obtenidad a .json
 
-            // al tener la lista de productos, generar un nuevo ID 
+            // generamos un nuevo ID 
             const newId = allTareas.length 
             ? Math.max(...allTareas.map(p => Number(p.id))) + 1
             : 1; // Generar un nuevo ID basado en el máximo ID existente
@@ -66,7 +84,9 @@ Tareas_Form.addEventListener('submit', async (e) => {
                 body: JSON.stringify({id: String(newId), ...payload}), //convertimos el objeto payload a una cadena JSON y lo pasamos al metodo
             });
 
+            //manejo de Error
             if(!response.ok) throw new Error(`status: ${response.status}`);
+            clearError();
             await getTareas();
             Tareas_Form.reset();
         }
