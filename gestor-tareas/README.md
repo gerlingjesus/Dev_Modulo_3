@@ -26,6 +26,12 @@ Se construye una aplicaciòn Web tipo trello que permite crear, editar, eliminar
 Para implementar este proyecto dirijase en la carpeta del proyecto, abra una terminal con dicha ruta y ejecute
 
 ```bash
+  npm init -y
+```
+```bash
+  npm install node-fetch json-server
+```
+```bash
   npx json-server --watch db.json --port 3000
 ```
 
