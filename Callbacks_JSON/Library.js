@@ -9,7 +9,7 @@ let biblioteca = {
 // Función para simular la lectura de datos (asimilar la lectura de un archivo JSON)
 function leerDatos(callback) {
     setTimeout(() => {
-        // Aquí simulas leer el JSON con un retraso de 1 segundo
+        //simulando leer el JSON con un retraso de 1 segundo
         callback(biblioteca);
     }, 1000);
 }
@@ -27,28 +27,24 @@ function mostrarLibros() {
 // Función para agregar un nuevo libro
 function agregarLibro(titulo, autor, genero, disponible) {
     const nuevoLibro = { titulo, autor, genero, disponible };
-    // Aquí falta la simulación de escribir el libro en el "archivo" (es decir, agregarlo al objeto)
+    // Escribiendo el libro en el objeto
         biblioteca.libros.push({titulo: `${nuevoLibro.titulo}`, autor: `${nuevoLibro.autor}`, genero: `${nuevoLibro.genero}`, disponible: nuevoLibro.disponible});
     setTimeout(() => {
-        // Pista: deberías agregar el nuevo libro a `biblioteca.libros`
-         
     }, 1000);
 }
 
 // Función para cambiar la disponibilidad de un libro
 function actualizarDisponibilidad(titulo, nuevoEstado) {
-    // Simula un retraso antes de actualizar la disponibilidad
     biblioteca.libros.forEach(biblio =>{
         if(biblio.titulo === titulo){
             biblio.disponible = nuevoEstado;
         }
     });
     setTimeout(() => {
-        // Pista: busca el libro por título y cambia la propiedad 'disponible' a nuevoEstado
     }, 1000);
 }
 
-// Ejemplo de cómo ejecutar la aplicación
+// Ejemplo de cómo ejecutar la aplicación_GJPH
 mostrarLibros();
 agregarLibro("El principito", "Antoine de Saint-Exupéry", "Fábula", true);
 actualizarDisponibilidad("El principito", false);
